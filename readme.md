@@ -1,30 +1,65 @@
-### Friendly Eats with Next.js + Firebase
+### NPM Package Pulse
 
-The codelab has the full instructions, but as a quick start, you can do this.
+#### Overview
 
-#### Run the application
+NPM Package Pulse lets users review and explore NPM packages with features like authentication, ratings, and reviews.
 
-1. In your terminal, run:
+#### Quick Start
 
-```sh
-firebase emulators:start --project demo-codelab-nextjs
+1. **Start Firebase Emulators:**
+
+   ```sh
+   firebase emulators:start --project demo-codelab-nextjs
+   ```
+
+2. **Set Up Firebase Config:**
+
+   - Copy `lib/firebase/config-copy.js` to `lib/firebase/config.js`.
+   - Add values from the Firebase console.
+
+3. **Install and Run:**
+
+   ```sh
+   npm install
+   npm run dev
+   ```
+
+4. **Open in Browser:**
+   ```sh
+   http://localhost:3000
+   ```
+
+#### Environment Variables
+
+Add these to `.env`:
+
+```env
+NEXT_PUBLIC_API_KEY=your-firebase-api-key
+NEXT_PUBLIC_AUTH_DOMAIN=your-auth-domain
+NEXT_PUBLIC_PROJECT_ID=your-project-id
+NEXT_PUBLIC_STORAGE_BUCKET=your-storage-bucket
+NEXT_PUBLIC_MESSAGING_SENDER_ID=your-messaging-sender-id
+NEXT_PUBLIC_APP_ID=your-app-id
 ```
 
-2. Copy the file `lib/firebase/config-copy.js` to `lib/firebase/config.js` and fill in the values from the Firebase console.
+Restart the server after changes.
 
-3. In a new terminal tab/window, run:
+#### Firebase Commands
 
-```sh
-npm i
-npm run dev
-```
+1. **Run Firebase CLI:**
 
-4. In your browser, open the URL: `http://localhost:3000`
+   ```sh
+   ./node_modules/firebase-tools/lib/bin/firebase.js
+   ```
 
-#### Use the application
+2. **Check Firebase Version:**
 
-1. While on `http://localhost:3000/` within your browser, click the "Sign in" button in the top right corner and sign in.
-2. In the dropdown menu in the top right menu, select "Add sample restaurants".
+   ```sh
+   ./node_modules/firebase-tools/lib/bin/firebase.js --version
+   ```
 
+3. **Login to Firebase:**
 
-
+   ```sh
+   ./node_modules/firebase-tools/lib/bin/firebase.js login
+   ```

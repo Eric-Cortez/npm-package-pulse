@@ -11,6 +11,16 @@ import { initializeServerApp, initializeApp } from "firebase/app";
 // Import Firebase authentication function to get auth instance
 import { getAuth } from "firebase/auth";
 
+export const firebaseConfig = {
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+};
+
+
 // Returns an authenticated client SDK instance for use in Server Side Rendering
 // and Static Site Generation
 // Export async function to get authenticated Firebase app for server-side operations
@@ -39,17 +49,3 @@ export async function getAuthenticatedAppForUser() {
   return { firebaseServerApp, currentUser: auth.currentUser };
 }
 
-export const firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "AUTH_DOMAIN",
-  projectId: "PROJECT_ID",
-  storageBucket: "STORAGE_BUCKET",
-  messagingSenderId: "MESSAGING_SENDER_ID",
-  appId: "APP_ID",
-};
-
-module.exports = {
-  experimental: {
-    allowedDevOrigins: ["http://10.0.0.145"], // Add your development origin here
-  },
-};
