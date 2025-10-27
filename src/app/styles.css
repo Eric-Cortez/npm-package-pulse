@@ -218,7 +218,7 @@ header {
 }
 
 .main__package {
-  background-color: rgb(229, 234, 240); /* Slightly darker gray */
+  background-color: rgb(248, 248, 248); /* Changed to light gray/white */
   min-height: 90vh;
 }
 
@@ -327,15 +327,69 @@ a {
 }
 
 .package__review_summary {
-  max-width: "50vw";
-  height: "75px";
-  padding-top: "10px";
+  max-width: 100%; /* Ensure it takes full width of its container */
+  height: auto; /* Allow height to adjust based on content */
+  padding: 15px 20px; /* Adjusted padding */
+  margin-top: 20px; /* Space from elements above */
+  border: 1px solid #a855f7; /* Purple border */
+  border-radius: 0.5rem;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); /* Glowing purple shadow */
+  background-color: rgb(234, 205, 248);
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+
+  & p:first-child {
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  & p:last-child {
+    font-size: 0.875rem;
+    color: #a855f7; /* Purple color for Gemini attribution */
+    font-weight: 600;
+  }
 }
 
 .img__section {
   width: 100%;
-  height: 400px;
+  max-width: 600px; /* Limit image width */
+  height: 300px; /* Fixed height for consistency */
+  margin: 20px auto; /* Center the image section and add margin */
   position: relative;
+  border-radius: 0.5rem; /* Consistent border-radius */
+  overflow: hidden; /* Ensures image respects border-radius */
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  background-color: white;
+
+  /* Styling for package rating overlay */
+  .package__rating {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 5px 10px;
+    border-radius: 0.25rem;
+    color: white;
+    display: flex;
+    align-items: center;
+
+    & ul {
+      margin-right: 5px;
+    }
+
+    & svg {
+      color: gold; /* Gold stars for contrast */
+    }
+
+    & span {
+      color: white; /* White text for contrast */
+      font-weight: 500;
+    }
+  }
+
   > img {
     width: 100%;
     height: 100%;
@@ -346,10 +400,18 @@ a {
 }
 
 .details {
-  position: absolute;
-  bottom: 0;
+  position: static; /* Change to static to flow with content */
+  bottom: unset;
   padding: 20px;
-  color: white;
+  color: #333; /* Darker text color */
+  background-color: white; /* Add background for details section */
+  border-radius: 0.5rem;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  margin-top: 20px; /* Adjusted margin-top */
+  z-index: auto; /* Remove explicit z-index */
+  position: relative; /* Needed for z-index */
 
   & span {
     color: inherit;
@@ -357,41 +419,64 @@ a {
 }
 
 .details__container {
-  --tw-gradient-from: #c60094 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(56 85 116 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgb(24 25 26 / 50%);
+  /* Removed background gradient */
+  background: none; /* Changed to no background */
+  position: static; /* Change to static */
+  right: unset;
+  bottom: unset;
+  left: unset;
+  /* Removed background color */
   width: 100%;
-  height: 100%;
+  height: auto; /* Allow height to adjust */
+}
+
+.package-header-details {
+  margin-top: 20px;
+  padding: 0 20px;
+  text-align: center;
+
+  & h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  & p {
+    font-size: 1rem;
+    color: rgb(107, 114, 128);
+  }
 }
 
 .reviews {
   & .review__item {
-    padding: 40px;
-    border-bottom: 1px solid rgb(156 163 175 / 0.25);
+    padding: 20px; /* Adjusted padding */
+    border-bottom: 1px solid rgb(229, 231, 235); /* Lighter border */
+    background-color: white; /* Added background for review items */
+    border-radius: 0.5rem;
+    box-shadow:
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+    margin-bottom: 20px; /* Space between review items */
   }
 
   & time {
     font-size: 0.8rem;
-    color: darkgrey;
+    color: rgb(107, 114, 128); /* Darker gray color */
   }
 }
 
 .actions {
   position: absolute;
-  z-index: 1;
-  bottom: -30px;
-
-  right: 0;
+  z-index: 3; /* Ensure actions are on top */
+  bottom: 10px; /* Adjusted position */
+  right: 10px; /* Adjusted position */
   display: flex;
   justify-content: flex-end;
+  gap: 10px; /* Added gap between actions */
   & img {
-    height: 4rem;
+    height: 2.5rem; /* Smaller icons */
+    width: 2.5rem;
   }
 
   .review {
@@ -400,11 +485,12 @@ a {
     --tw-shadow:
       0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     cursor: pointer;
-    background-color: rgb(255 202 40);
-    border-radius: 0.75rem;
+    background-color: rgb(59, 130, 246); /* Blue for review button */
+    border-radius: 9999px; /* Fully rounded */
     box-shadow:
       0 4px 6px -1px rgb(0 0 0 / 0.1),
       0 2px 4px -2px rgb(0 0 0 / 0.1);
+    padding: 10px; /* Added padding */
   }
 
   .add {
@@ -416,10 +502,15 @@ a {
     box-shadow:
       0 4px 6px -1px rgb(0 0 0 / 0.1),
       0 2px 4px -2px rgb(0 0 0 / 0.1);
-    background-color: rgb(255 143 0);
+    background-color: rgb(107, 114, 128); /* Gray for add button */
     border-radius: 9999px;
     cursor: pointer;
-    height: 4rem;
+    height: 2.5rem; /* Smaller height */
+    width: 2.5rem; /* Smaller width */
+    display: flex; /* To center content */
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Added padding */
   }
 
   .add input {
@@ -427,16 +518,19 @@ a {
   }
 
   :where(.review, .add) {
-    margin: 0 30px;
+    margin: 0; /* Remove margin */
   }
 }
 
 #review {
-  padding: 20px;
-  font-size: 17px;
-  border: none;
-  border-bottom: 2px solid rgb(255 111 0);
+  padding: 15px 20px; /* Adjusted padding */
+  font-size: 1rem; /* Adjusted font size */
+  border: 1px solid rgb(209, 213, 219); /* Lighter border */
+  border-bottom: 2px solid rgb(59, 130, 246); /* Blue border for focus */
   width: 100%;
+  border-radius: 0.375rem;
+  background-color: white;
+  resize: vertical; /* Allow vertical resizing */
 }
 
 /* Thanks to: https://codepen.io/chris22smith/pen/MJzLJN */
@@ -626,4 +720,18 @@ a {
   width: 200px; /* Adjusted fixed width */
   height: auto; /* Maintain aspect ratio */
   margin-bottom: 20px; /* Space between logo and listings */
+}
+
+.review-page-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.review-page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
 }
