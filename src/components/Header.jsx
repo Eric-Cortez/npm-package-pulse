@@ -88,13 +88,15 @@ export default function Header({ initialUser }) {
                   {user.email ? user.email.substring(0, 2).toUpperCase() : ""}
                 </div>
               )}
-              {user.displayName}
+              <span className="user-display-name">{user.displayName}</span>
             </p>
 
             <div className="menu">
               ...
               <ul>
-                <li>{user.displayName}</li>
+                <li>
+                  <span className="user-display-name">{user.displayName}</span>
+                </li>
 
                 <li>
                   <a href="#" onClick={addFakePackagesAndReviews}>

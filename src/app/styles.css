@@ -122,10 +122,10 @@ header {
   }
   .profileImage {
     border-radius: 100%;
-    border-color: #333;
-    border-width: 2px;
-    border-style: solid;
+    border: 2px solid #a855f7; /* Purple border */
     margin-right: 10px;
+    width: 2.5rem; /* Consistent size for image and fallback */
+    height: 2.5rem;
   }
 
   &.fallback {
@@ -135,8 +135,8 @@ header {
     background-color: rgb(59, 130, 246);
     color: white;
     font-weight: bold;
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem; /* Consistent size */
+    height: 2.5rem;
     font-size: 1rem;
   }
 }
@@ -149,7 +149,7 @@ header {
     margin-inline-end: 10px;
   }
 
-  color: #333;
+  color: #333; /* Changed to match header text */
   text-decoration: none;
   font-size: 1.25rem;
   font-weight: 500;
@@ -167,24 +167,34 @@ header {
   left: calc(-220px * 0.9);
   color: #333;
   background-color: white;
-  box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1); /* Updated box-shadow */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding: 10px 0; /* Added vertical padding */
 
   & li {
-    padding: 10px;
-    border-bottom: 1px solid rgb(42 72 101 / 0.25);
+    padding: 10px 20px; /* Adjusted padding */
+    border-bottom: 1px solid rgb(229, 231, 235); /* Lighter border */
+
+    &:last-child {
+      border-bottom: none; /* Remove border from last item */
+    }
   }
 
   & a {
-    font-weight: bold;
-    color: unset;
+    font-weight: 500; /* Adjusted font weight */
+    color: #333; /* Darker link color */
+    display: block; /* Make links fill list item */
   }
 
   & li:has(a):hover {
-    background-color: rgb(42 72 101 / 0.05);
+    background-color: rgb(248, 248, 248); /* Lighter hover background */
   }
 
   & a:visited {
-    color: unset;
+    color: #333; /* Darker visited link color */
   }
 }
 
@@ -200,6 +210,11 @@ header {
   & p {
     display: flex;
     align-items: center;
+  }
+
+  & .user-display-name {
+    color: #a855f7; /* Purple color for user name */
+    font-weight: 600;
   }
 
   & a {
