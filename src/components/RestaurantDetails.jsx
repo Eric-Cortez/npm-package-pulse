@@ -46,7 +46,7 @@ const RestaurantDetails = ({
         <div className="details">
           <h2>{restaurant.name}</h2>
 
-          <div className="restaurant__rating">
+          <div className="package__rating">
             <ul>{renderStars(restaurant.avgRating)}</ul>
 
             <span>({restaurant.numRatings})</span>

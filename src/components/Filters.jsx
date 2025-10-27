@@ -1,4 +1,4 @@
-// The filters shown on the restaurant listings page
+// The filters shown on the package listings page
 
 import Tag from "@/src/components/Tag.jsx";
 
@@ -38,7 +38,7 @@ export default function Filters({ filters, setFilters }) {
         <summary>
           <img src="/filter.svg" alt="filter" />
           <div>
-            <p>Restaurants</p>
+            <p>Packages</p>
             <p>Sorted by {filters.sort || "Rating"}</p>
           </div>
         </summary>

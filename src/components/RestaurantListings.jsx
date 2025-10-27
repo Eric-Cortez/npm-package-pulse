@@ -40,7 +40,7 @@ const ResturantDetails = ({ restaurant }) => (
 );
 
 const RestaurantRating = ({ restaurant }) => (
-  <div className="restaurant__rating">
+  <div className="package__rating">
     <ul>{renderStars(restaurant.avgRating)}</ul>
     <span>({restaurant.numRatings})</span>
   </div>
