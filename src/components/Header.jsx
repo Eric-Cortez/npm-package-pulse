@@ -70,18 +70,24 @@ export default function Header({ initialUser }) {
   return (
     <header>
       <Link href="/" className="logo">
-        <img src="/friendly-eats.svg" alt="FriendlyEats" />
-        NPM Package Pulse
+        <img src="/build.png" alt="Build Pulse Logo" />
+        Package Pulse
       </Link>
       {user ? (
         <>
           <div className="profile">
             <p>
-              <img
-                className="profileImage"
-                src={user.photoURL || "/profile.svg"}
-                alt={user.email}
-              />
+              {user.photoURL ? (
+                <img
+                  className="profileImage"
+                  src={user.photoURL}
+                  alt={user.email}
+                />
+              ) : (
+                <div className="profileImage fallback">
+                  {user.email ? user.email.substring(0, 2).toUpperCase() : ""}
+                </div>
+              )}
               {user.displayName}
             </p>
 

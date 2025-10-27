@@ -33,6 +33,7 @@ export default async function Home(props) {
   // Return JSX that renders the main home page content
   return (
     <main className="main__home">
+      <img src="/build.png"  className="build-pulse-logo" alt="Build Pulse Logo" />
       <PackageListings
         initialPackages={packages}
         searchParams={searchParams}

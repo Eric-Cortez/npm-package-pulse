@@ -77,13 +77,13 @@ footer {
   }
 
   & .button--cancel {
-    color: rgb(178, 193, 212);
-    background-color: white;
+    color: rgb(75, 85, 99);
+    background-color: rgb(229, 231, 235); /* Gray for secondary button */
     border-radius: 3px;
   }
 
   & .button--confirm {
-    background-color: rgb(255 111 0);
+    background-color: rgb(59, 130, 246); /* Blue for primary button */
     color: white;
     border-radius: 3px;
   }
@@ -97,8 +97,11 @@ footer {
 }
 
 header {
-  background-color: rgb(56 85 116);
-  color: white;
+  background-color: rgb(248, 248, 248); /* Changed to a light gray/white */
+  color: rgb(42 72 101);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* Added to make z-index effective */
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   padding: 0.8rem;
@@ -115,14 +118,26 @@ header {
   }
   & a {
     text-decoration: none;
-    color: white;
+    color: #333;
   }
   .profileImage {
     border-radius: 100%;
-    border-color: white;
+    border-color: #333;
     border-width: 2px;
     border-style: solid;
     margin-right: 10px;
+  }
+
+  &.fallback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(59, 130, 246);
+    color: white;
+    font-weight: bold;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
   }
 }
 
@@ -134,7 +149,7 @@ header {
     margin-inline-end: 10px;
   }
 
-  color: white;
+  color: #333;
   text-decoration: none;
   font-size: 1.25rem;
   font-weight: 500;
@@ -150,7 +165,7 @@ header {
 .menu ul {
   /* display: block; */
   left: calc(-220px * 0.9);
-  color: rgb(42 72 101);
+  color: #333;
   background-color: white;
   box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
 
@@ -194,18 +209,22 @@ header {
 }
 
 .main__home {
-  background-color: rgb(178 193 212);
+  background-color: rgb(248, 248, 248); /* Light gray/white */
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px; /* Add some space from the navbar */
 }
 
 .main__package {
-  background-color: rgb(229 234 240);
+  background-color: rgb(229, 234, 240); /* Slightly darker gray */
   min-height: 90vh;
 }
 
 article {
   margin: 0 auto;
-  background-color: rgb(229 234 240);
+  background-color: rgb(248, 248, 248); /* Light gray/white */
   padding: 20px 40px;
 }
 
@@ -223,6 +242,10 @@ article {
   & li {
     background: white;
     max-width: 300px;
+    border-radius: 0.5rem;
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
 
   & a {
@@ -366,8 +389,8 @@ a {
     background-color: rgb(255 202 40);
     border-radius: 0.75rem;
     box-shadow:
-      var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-      var(--tw-shadow);
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
 
   .add {
@@ -377,8 +400,8 @@ a {
       0 10px 15px -3px var(--tw-shadow-color),
       0 4px 6px -4px var(--tw-shadow-color);
     box-shadow:
-      var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-      var(--tw-shadow);
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
     background-color: rgb(255 143 0);
     border-radius: 9999px;
     cursor: pointer;
@@ -481,7 +504,7 @@ a {
 .filter-menu {
   background-color: white;
   border-radius: 3px;
-  border-bottom: 1px solid rgb(27 58 87);
+  border-bottom: 1px solid #333;
 
   & summary {
     font-weight: bold;
@@ -519,7 +542,7 @@ a {
   }
 
   & select {
-    color: rgb(17 24 39);
+    color: #333;
     font-size: 0.875rem;
     line-height: 1.25rem;
     padding-top: 1rem;
@@ -580,4 +603,10 @@ a {
     border: none;
     font-size: 0.8rem;
   }
+}
+
+.build-pulse-logo {
+  width: 200px; /* Adjusted fixed width */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Space between logo and listings */
 }

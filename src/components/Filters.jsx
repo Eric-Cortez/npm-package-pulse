@@ -53,25 +53,16 @@ export default function Filters({ filters, setFilters }) {
           <FilterSelect
             label="Category"
             options={[
-              "",
-              "Italian",
-              "Chinese",
-              "Japanese",
-              "Mexican",
-              "Indian",
-              "Mediterranean",
-              "Caribbean",
-              "Cajun",
-              "German",
-              "Russian",
-              "Cuban",
-              "Organic",
-              "Tapas",
+              "Utilities",
+              "Web Development",
+              "Graphics",
+              "Build Tools",
+              "Programming Languages",
             ]}
             value={filters.category}
             onChange={(event) => handleSelectionChange(event, "category")}
             name="category"
-            icon="/food.svg"
+            icon="/square-blocks-outline.svg"
           />
           <FilterSelect
             label="Sort"
@@ -79,7 +70,7 @@ export default function Filters({ filters, setFilters }) {
             value={filters.sort}
             onChange={(event) => handleSelectionChange(event, "sort")}
             name="sort"
-            icon="/sortBy.svg"
+            icon="/sort-by.svg"
           />
 
           <footer>
