@@ -6,9 +6,9 @@ import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "FriendlyEats",
+  title: "NPM Package Pulse",
   description:
-    "FriendlyEats is a restaurant review website built with Next.js and Firebase.",
+    "NPM Package Pulse is a package review website built with Next.js and Firebase.",
 };
 
 export default async function RootLayout({ children }) {

@@ -1,25 +1,25 @@
 "use client"; // Directive for Next.js to render this component on the client-side
 
-// This components shows one individual restaurant
-// It receives data from src/app/restaurant/[id]/page.jsx
+// This components shows one individual package
+// It receives data from src/app/package/[id]/page.jsx
 
 import { React, useState, useEffect, Suspense } from "react"; // Importing necessary hooks and components from React
 import dynamic from "next/dynamic"; // Importing dynamic from Next.js for lazy loading
-import { getRestaurantSnapshotById } from "@/src/lib/firebase/firestore.js"; // Importing function to get restaurant data from Firestore
+import { getPackageSnapshotById } from "@/src/lib/firebase/firestore.js"; // Importing function to get package data from Firestore
 import { useUser } from "@/src/lib/getUser"; // Importing custom hook to get user data
-import RestaurantDetails from "@/src/components/RestaurantDetails.jsx"; // Importing the RestaurantDetails component
-import { updateRestaurantImage } from "@/src/lib/firebase/storage.js"; // Importing function to update restaurant image in storage
+import PackageDetails from "@/src/components/PackageDetails.jsx"; // Importing the PackageDetails component
+import { updatePackageImage } from "@/src/lib/firebase/storage.js"; // Importing function to update package image in storage
 
 const ReviewDialog = dynamic(() => import("@/src/components/ReviewDialog.jsx")); // Dynamically importing the ReviewDialog component for lazy loading
 
-// Functional component for a single restaurant
-export default function Restaurant({
-  id, // Prop for the restaurant's ID
-  initialRestaurant, // Prop for the initial restaurant data
+// Functional component for a single Package
+export default function Package({
+  id, // Prop for the package's ID
+  initialPackage, // Prop for the initial package data
   initialUserId, // Prop for the initial user ID
   children, // Prop for child components
 }) {
-  const [restaurantDetails, setRestaurantDetails] = useState(initialRestaurant); // State for restaurant details
+  const [packageDetails, setPackageDetails] = useState(initialPackage); // State for package details
   const [isOpen, setIsOpen] = useState(false); // State to control the review dialog
 
   // The only reason this component needs to know the user ID is to associate a review with the user, and to know whether to show the review dialog
@@ -35,16 +35,16 @@ export default function Restaurant({
     setReview({ ...review, [name]: value }); // Updating the review state
   };
 
-  // Function to handle updating the restaurant image
-  async function handleRestaurantImage(target) {
+  // Function to handle updating the package image
+  async function handlePackageImage(target) {
     const image = target.files ? target.files[0] : null; // Getting the image file from the input
     if (!image) {
       // If no image is selected
       return; // Exit the function
     }
 
-    const imageURL = await updateRestaurantImage(id, image); // Calling the function to update the image in storage and get the URL
-    setRestaurantDetails({ ...restaurantDetails, photo: imageURL }); // Updating the restaurant details with the new image URL
+    const imageURL = await updatePackageImage(id, image); // Calling the function to update the image in storage and get the URL
+    setPackageDetails({ ...packageDetails, photo: imageURL }); // Updating the package details with the new image URL
   }
 
   // Function to handle closing the review dialog
@@ -53,26 +53,26 @@ export default function Restaurant({
     setReview({ rating: 0, text: "" }); // Reset the review form
   };
 
-  // Effect to get real-time updates for the restaurant data
+  // Effect to get real-time updates for the package data
   useEffect(() => {
-    return getRestaurantSnapshotById(id, (data) => {
-      // Subscribing to restaurant data snapshots
-      setRestaurantDetails(data); // Updating the restaurant details state with new data
+    return getPackageSnapshotById(id, (data) => {
+      // Subscribing to package data snapshots
+      setPackageDetails(data); // Updating the package details state with new data
     });
   }, [id]); // Dependency array for the effect
 
   // JSX for the component
   return (
     <>
-      <RestaurantDetails
-        restaurant={restaurantDetails} // Passing restaurant details to the RestaurantDetails component
-        userId={userId} // Passing user ID to the RestaurantDetails component
-        handleRestaurantImage={handleRestaurantImage} // Passing the image handler function
+      <PackageDetails
+        myPackage={packageDetails} // Passing package details to the Package Details component
+        userId={userId} // Passing user ID to the Package Details component
+        handlePackageImage={handlePackageImage} // Passing the image handler function
         setIsOpen={setIsOpen} // Passing the function to set the dialog state
         isOpen={isOpen} // Passing the dialog state
       >
         {children} {/* Rendering child components */}
-      </RestaurantDetails>
+      </PackageDetails>
       {userId && ( // If there is a user ID
         <Suspense fallback={<p>Loading...</p>}>
           {" "}
@@ -83,7 +83,7 @@ export default function Restaurant({
             review={review} // Passing the review state
             onChange={onChange} // Passing the change handler function
             userId={userId} // Passing the user ID
-            id={id} // Passing the restaurant ID
+            id={id} // Passing the package ID
           />
         </Suspense>
       )}

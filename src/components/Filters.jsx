@@ -73,38 +73,6 @@ export default function Filters({ filters, setFilters }) {
             name="category"
             icon="/food.svg"
           />
-
-          <FilterSelect
-            label="City"
-            options={[
-              "",
-              "New York",
-              "Los Angeles",
-              "London",
-              "Paris",
-              "Tokyo",
-              "Mumbai",
-              "Dubai",
-              "Amsterdam",
-              "Seoul",
-              "Singapore",
-              "Istanbul",
-            ]}
-            value={filters.city}
-            onChange={(event) => handleSelectionChange(event, "city")}
-            name="city"
-            icon="/location.svg"
-          />
-
-          <FilterSelect
-            label="Price"
-            options={["", "$", "$$", "$$$", "$$$$"]}
-            value={filters.price}
-            onChange={(event) => handleSelectionChange(event, "price")}
-            name="price"
-            icon="/price.svg"
-          />
-
           <FilterSelect
             label="Sort"
             options={["Rating", "Review"]}
@@ -121,9 +89,7 @@ export default function Filters({ filters, setFilters }) {
                 type="reset"
                 onClick={() => {
                   setFilters({
-                    city: "",
                     category: "",
-                    price: "",
                     sort: "",
                   });
                 }}

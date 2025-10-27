@@ -1,23 +1,23 @@
-// This component handles the list of reviews for a given restaurant
+// This component handles the list of reviews for a given package
 
 import React from "react";
-import { getReviewsByRestaurantId } from "@/src/lib/firebase/firestore.js";
+import { getReviewsByPackageId } from "@/src/lib/firebase/firestore.js";
 import ReviewsListClient from "@/src/components/Reviews/ReviewsListClient";
 import { ReviewSkeleton } from "@/src/components/Reviews/Review";
 import { getFirestore } from "firebase/firestore";
 import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp";
 
-export default async function ReviewsList({ restaurantId, userId }) {
+export default async function ReviewsList({ packageId, userId }) {
   const { firebaseServerApp } = await getAuthenticatedAppForUser();
-  const reviews = await getReviewsByRestaurantId(
+  const reviews = await getReviewsByPackageId(
     getFirestore(firebaseServerApp),
-    restaurantId
+    packageId
   );
 
   return (
     <ReviewsListClient
       initialReviews={reviews}
-      restaurantId={restaurantId}
+      packageId={packageId}
       userId={userId}
     />
   );

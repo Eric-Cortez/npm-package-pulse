@@ -1,19 +1,19 @@
-// This component shows restaurant metadata, and offers some actions to the user like uploading a new restaurant image, and adding a review.
+// This component shows package metadata, and offers some actions to the user like uploading a new package image, and adding a review.
 
 import React from "react";
 import renderStars from "@/src/components/Stars.jsx";
 
-const RestaurantDetails = ({
-  restaurant,
+const PackageDetails = ({
+  myPackage,
   userId,
-  handleRestaurantImage,
+  handlePackageImage,
   setIsOpen,
   isOpen,
   children,
 }) => {
   return (
     <section className="img__section">
-      <img src={restaurant.photo} alt={restaurant.name} />
+      <img src={myPackage.photo} alt={myPackage.name} />
 
       <div className="actions">
         {userId && (
@@ -27,7 +27,7 @@ const RestaurantDetails = ({
           />
         )}
         <label
-          onChange={(event) => handleRestaurantImage(event.target)}
+          onChange={(event) => handlePackageImage(event.target)}
           htmlFor="upload-image"
           className="add"
         >
@@ -44,18 +44,17 @@ const RestaurantDetails = ({
 
       <div className="details__container">
         <div className="details">
-          <h2>{restaurant.name}</h2>
+          <h2>{myPackage.name}</h2>
 
           <div className="package__rating">
-            <ul>{renderStars(restaurant.avgRating)}</ul>
+            <ul>{renderStars(myPackage.avgRating)}</ul>
 
-            <span>({restaurant.numRatings})</span>
+            <span>({myPackage.numRatings})</span>
           </div>
 
           <p>
-            {restaurant.category} | {restaurant.city}
+            {myPackage.category}
           </p>
-          <p>{"$".repeat(restaurant.price)}</p>
           {children}
         </div>
       </div>
@@ -63,4 +62,4 @@ const RestaurantDetails = ({
   );
 };
 
-export default RestaurantDetails;
+export default PackageDetails;

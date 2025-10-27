@@ -13,7 +13,7 @@ const ReviewDialog = ({
   review, // Prop object containing review data
   onChange, // Prop function to handle changes in the review form
   userId, // Prop for the user's ID
-  id, // Prop for the restaurant's ID
+  id, // Prop for the packages's ID
 }) => {
   const dialog = useRef(); // Creating a ref for the dialog element
 
@@ -59,8 +59,8 @@ const ReviewDialog = ({
               onChange={(e) => onChange(e.target.value, "text")} // onChange handler
             />
           </p>
-          <input type="hidden" name="restaurantId" value={id} />{" "}
-          {/* Hidden input for restaurant ID */}
+          <input type="hidden" name="packageId" value={id} />{" "}
+          {/* Hidden input for package ID */}
           <input type="hidden" name="userId" value={userId} />{" "}
           {/* Hidden input for user ID */}
         </article>

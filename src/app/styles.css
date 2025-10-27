@@ -198,7 +198,7 @@ header {
   min-height: 100vh;
 }
 
-.main__restaurant {
+.main__package {
   background-color: rgb(229 234 240);
   min-height: 90vh;
 }
@@ -213,7 +213,7 @@ article {
   width: 75%;
 }
 
-.restaurants {
+.packages {
   display: grid;
   margin-top: 20px;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -257,7 +257,7 @@ a {
   text-decoration: none;
 }
 
-.restaurant__meta {
+.package__meta {
   display: flex;
   font-weight: 500;
   justify-content: space-between;
@@ -265,7 +265,7 @@ a {
   margin-bottom: 10px;
 }
 
-.restaurant__details {
+.package__details {
   padding: 20px;
 }
 
@@ -289,7 +289,7 @@ a {
   }
 }
 
-.restaurant__review_summary {
+.package__review_summary {
   max-width: "50vw";
   height: "75px";
   padding-top: "10px";

@@ -10,8 +10,8 @@ import {
   signOut, // Function to sign out the current user
   onIdTokenChanged, // Function to listen for auth state changes
 } from "@/src/lib/firebase/auth.js";
-// Import function to add sample restaurant data to Firestore
-import { addFakeRestaurantsAndReviews } from "@/src/lib/firebase/firestore.js";
+// Import function to add sample package data to Firestore
+import { addFakePackagesAndReviews } from "@/src/lib/firebase/firestore.js";
 // Import cookie management functions for storing auth tokens
 import { setCookie, deleteCookie } from "cookies-next";
 
@@ -71,7 +71,7 @@ export default function Header({ initialUser }) {
     <header>
       <Link href="/" className="logo">
         <img src="/friendly-eats.svg" alt="FriendlyEats" />
-        Friendly Eats
+        NPM Package Pulse
       </Link>
       {user ? (
         <>
@@ -91,8 +91,8 @@ export default function Header({ initialUser }) {
                 <li>{user.displayName}</li>
 
                 <li>
-                  <a href="#" onClick={addFakeRestaurantsAndReviews}>
-                    Add sample restaurants
+                  <a href="#" onClick={addFakePackagesAndReviews}>
+                    Add sample packages
                   </a>
                 </li>
 

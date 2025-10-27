@@ -1,23 +1,23 @@
 import { gemini20Flash, googleAI } from "@genkit-ai/googleai"; // Importing Gemini AI models and plugins
 import { genkit } from "genkit"; // Importing the Genkit library for AI integration
-import { getReviewsByRestaurantId } from "@/src/lib/firebase/firestore.js"; // Importing function to get reviews from Firestore
+import { getReviewsByPackageId } from "@/src/lib/firebase/firestore.js"; // Importing function to get reviews from Firestore
 import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp"; // Importing function to get authenticated Firebase app
 import { getFirestore } from "firebase/firestore"; // Importing Firestore instance
 
 // Async component to generate a summary of reviews using Gemini AI
-export async function GeminiSummary({ restaurantId }) {
+export async function GeminiSummary({ packageId }) {
   const { firebaseServerApp } = await getAuthenticatedAppForUser(); // Getting the authenticated Firebase app for the user
-  const reviews = await getReviewsByRestaurantId(
-    // Fetching reviews for the given restaurant ID
+  const reviews = await getReviewsByPackageId(
+    // Fetching reviews for the given package ID
     getFirestore(firebaseServerApp), // Passing the Firestore instance
-    restaurantId // Passing the restaurant ID
+    packageId // Passing the package ID
   );
 
   const reviewSeparator = "@"; // Defining a separator for joining review texts
   const prompt = ` // Creating a prompt for the AI model
-    Based on the following restaurant reviews,
+    Based on the following package reviews,
     where each review is separated by a '${reviewSeparator}' character,
-    create a one-sentence summary of what people think of the restaurant.
+    create a one-sentence summary of what people think of the package.
 
     Here are the reviews: ${reviews.map((review) => review.text).join(reviewSeparator)}
   `;
@@ -43,7 +43,7 @@ export async function GeminiSummary({ restaurantId }) {
 
     return (
       // Returning the JSX for the summary
-      <div className="restaurant__review_summary">
+      <div className="package__review_summary">
         <p>{text}</p> {/* Displaying the generated summary text */}
         <p>✨ Summarized with Gemini</p> {/* Attribution to Gemini */}
       </div>
@@ -59,7 +59,7 @@ export async function GeminiSummary({ restaurantId }) {
 export function GeminiSummarySkeleton() {
   return (
     // Returning the JSX for the skeleton
-    <div className="restaurant__review_summary">
+    <div className="package__review_summary">
       <p>✨ Summarizing reviews with Gemini...</p> {/* Loading message */}
     </div>
   );
