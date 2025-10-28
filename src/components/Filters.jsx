@@ -1,8 +1,9 @@
 // The filters shown on the package listings page
-
+// import Tag component
 import Tag from "@/src/components/Tag.jsx";
-
+// function component FilterSelect
 function FilterSelect({ label, options, value, onChange, name, icon }) {
+  // render select filter
   return (
     <div>
       <img src={icon} alt={label} />
@@ -19,19 +20,20 @@ function FilterSelect({ label, options, value, onChange, name, icon }) {
     </div>
   );
 }
-
+// function component Filters
 export default function Filters({ filters, setFilters }) {
+  // handle selection change
   const handleSelectionChange = (event, name) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
       [name]: event.target.value,
     }));
   };
-
+  // update field
   const updateField = (type, value) => {
     setFilters({ ...filters, [type]: value });
   };
-
+  // render filters
   return (
     <section className="filter">
       <details className="filter-menu">

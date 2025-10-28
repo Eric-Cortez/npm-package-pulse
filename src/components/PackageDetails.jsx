@@ -1,8 +1,9 @@
 // This component shows package metadata, and offers some actions to the user like uploading a new package image, and adding a review.
-
+// import react
 import React from "react";
+// import renderStars
 import renderStars from "@/src/components/Stars.jsx";
-
+// function component PackageDetails
 const PackageDetails = ({
   myPackage,
   userId,
@@ -11,6 +12,7 @@ const PackageDetails = ({
   isOpen,
   children,
 }) => {
+  // render package details
   return (
     <div className="review-page-container">
       <div className="review-page-content">

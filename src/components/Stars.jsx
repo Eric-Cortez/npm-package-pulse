@@ -1,7 +1,9 @@
 // This component displays star ratings
-
+// function to render stars based on average rating
 export default function renderStars(avgRating) {
+  // array to hold star elements
   const arr = [];
+  // loop to create 5 stars
   for (let i = 0; i < 5; i++) {
     if (i < Math.floor(avgRating)) {
       arr.push(
@@ -41,5 +43,6 @@ export default function renderStars(avgRating) {
       );
     }
   }
+  // return array of star elements
   return arr;
 }

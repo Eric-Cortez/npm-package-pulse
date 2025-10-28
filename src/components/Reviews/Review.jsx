@@ -1,6 +1,8 @@
+// import React from "react";
 import renderStars from "@/src/components/Stars.jsx";
-
+// functional component to display a single review
 export function Review({ rating, text, timestamp }) {
+  // return JSX to display review
   return (
     <li className="review__item">
       <ul className="package__rating">{renderStars(rating)}</ul>
@@ -14,8 +16,9 @@ export function Review({ rating, text, timestamp }) {
     </li>
   );
 }
-
+// skeleton loader for review
 export function ReviewSkeleton() {
+  // return a skeleton loader for review
   return (
     <li className="review__item">
       <div className="package__rating">

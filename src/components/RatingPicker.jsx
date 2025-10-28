@@ -1,7 +1,8 @@
+// import React
 import React from "react";
 
 // A HTML and CSS only rating picker thanks to: https://codepen.io/chris22smith/pen/MJzLJN
-
+// function component RatingPicker
 const RatingPicker = () => {
   return (
     <p className="rating-picker">
@@ -62,5 +63,5 @@ const RatingPicker = () => {
     </p>
   );
 };
-
+// export RatingPicker
 export default RatingPicker;
