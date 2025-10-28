@@ -14,7 +14,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   // Get the authenticated user (if any)
   const { currentUser } = await getAuthenticatedAppForUser();
-  // Render the HTML structure with Header and main content
+  // Render the HTML structure with Header and main content in JSX
   return (
     <html lang="en">
       <body>
