@@ -34,7 +34,8 @@ export async function getAuthenticatedAppForUser() {
   // Initialize Firebase Server App with client app configuration and auth token
   const firebaseServerApp = initializeServerApp(
     // https://github.com/firebase/firebase-js-sdk/issues/8863#issuecomment-2751401913
-    initializeApp(firebaseConfig), // Initialize base Firebase app with default configuration
+    // initializeApp(firebaseConfig), // Initialize base Firebase app with default configuration
+    initializeApp(), 
     {
       authIdToken, // Pass the ID token for authentication
     }
