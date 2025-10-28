@@ -10,7 +10,7 @@ import { initializeServerApp, initializeApp } from "firebase/app";
 
 // Import Firebase authentication function to get auth instance
 import { getAuth } from "firebase/auth";
-
+// Firebase configuration object using environment variables
 export const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
