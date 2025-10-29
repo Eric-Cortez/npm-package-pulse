@@ -32,7 +32,7 @@ const PackageDetails = ({
                 onClick={() => {
                   setIsOpen(!isOpen);
                 }}
-                src="/reviews.svg"
+                src="/review.svg"
               />
             )}
             <label
